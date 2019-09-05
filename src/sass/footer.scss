@@ -1,0 +1,131 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+ul,ol,li{
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6,b,strong{
+	font-weight: 0;
+}
+a,u{
+	text-decoration: none;
+}
+i,em{
+	font-style: normal;
+}
+body{
+	font-size: 14px;
+}
+#footer{
+    width: 100%;
+    height: 355px;
+    position: relative;
+        .footer-top{
+            width: 1000px;
+            height: 260px;
+            margin: 0 auto;
+            padding: 30px 0;
+            //logo
+                .footer-top-logo{
+                    width: 160px;
+                    height: 140px;
+                    float: left;
+                    border-left: 1px dashed #ccc;
+                    border-right: 1px dashed #ccc;
+                    margin-left: 100px;
+                    text-align: center;
+                        a{
+                            display: block;
+                            text-align: center;
+                            width: 66px;
+                            height: 32px;
+                            float: left;
+                            margin: 16px 5px;
+                            line-height: 32px;
+                            border: 1px dashed #cd9368;
+                            color: #cd9368;
+                            border-radius: 4px;
+                        }
+                    
+                        
+                }
+                //指南
+                .footer-top-zhinan{
+                    width: 110px;
+                    height: 140px;
+                    border-right: 1px dashed #ddd;
+                    text-align: center;
+                    float: left;
+                        h3{
+                            margin-bottom: 12px;
+                            font-weight: 600;
+                             color: #444;
+                        }
+                        a{
+                            display: block;
+                            line-height: 28px;
+                            color: #999;
+                        }
+
+                }
+                //微信商城
+                .footer-top-img{
+                    width: 516px;
+                    height: 140px;
+                    float: right;
+                    display: flex;
+                    justify-content: space-between;
+                        li{
+                            width: 96px;
+                            height: 130px;
+                            float: left;
+                                h3{
+                                    margin-bottom: 12px;
+                                    text-align: center;
+                                }
+                        }
+                }
+        }
+        // 版权快
+        p{
+            line-height: 12px;
+            margin-bottom: 16px;
+            color: #5e5e5e;
+            text-align: center;
+                a{
+                    color: #5e5e5e;
+                }
+        }  
+        // 底部图片
+        .footer-bottom{
+            margin-top: 4px;
+            padding-bottom: 20px;
+            text-align: center;
+                a{
+                    display: inline-block;
+                    width: 96px;
+                    height: 32px;
+                    img{
+                        &:first-child{
+                            display: inline-block;
+                            height: 32px;
+                         }
+                        &:nth-chlid(2){
+                            display: inline-block;
+                            width: auto;
+                            height: 32px;
+                        }
+                        &:nth-chlid(3){
+                            display:block;
+                            width: 85px;
+                            height: 32px;
+                        }
+                    }
+                     
+                } 
+                
+                
+        }
+}

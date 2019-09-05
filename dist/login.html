@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/login.css">
+    
+</head>
+<body>
+    <header></header> 
+    <div class="big">
+        <div class="big-box">
+            <img src="img/login_img1.jpg" alt="aaaa">
+            <div class="big-box-right">
+                <div class="huiyuan">哥弟会员</div>
+                <p>你输入的密码和账户名不匹配，请重新输入。或者你忘记了密码？</p>
+                <form action="" method="get">
+                    <table>
+                        <tr>
+                            <td class="td-left">账户名</td>
+                            <td class="td-right"><input type="text" placeholder="会员名/邮箱地址/手机号"></td>
+                        </tr>
+                        <tr>
+                            <td class="td-left">密码</td>
+                            <td class="td-right"><input type="password"></td>
+                        </tr>
+                       <!-- 三十天内免登录 -->
+                        <!-- <div class="asd">
+                            <span class="asd-asd">
+                                <input type="checkbox">
+                                <span>三十天内免登录</span>
+                            </span>
+                        </div> -->
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+            $('header').load('header.html header',function(){
+                $('.navigation .navigation-top-t .navigation-top a').hover(function(){
+            $(this).css('color','#cd842d')
+        },function(){
+            $(this).css('color','black')
+        })
+        //登陆注册按钮
+        $('.navigation .navigation-top-t .navigation-top a').eq(1).click(function(){
+            location.href = 'register.html';
+        })
+        $('.navigation .navigation-top-t .navigation-top a').eq(0).click(function(){
+            location.href = 'login.html';
+        })
+        // 微信商城
+        $('.navigation .navigation-top-t .navigation-top a').eq(3).hover(
+                function(){
+                    $('.navigation-code').slideDown(200)},
+                function(){
+                    $('.navigation-code').slideUp(200)}
+            )
+        // 列表导航
+        $('.navigation-bottom .navigation-bottom-ul > li').each(function(index,value){
+            $(value).hover(function(){
+                $(this).children('ul').css('visibility','visible')
+            },function(){
+                $(this).children('ul').css('visibility','hidden')
+            });
+        })
+        $('.navigation-bottom .navigation-bottom-ul > li > ul a').each(function(index,value){
+            $(value).hover(function(){
+                $(this).css('text-decoration','underline')
+            },function(){
+                $(this).css('text-decoration','none')
+            });
+        })
+            });
+            $('footer').load('footer.html');
+        </script>
+
+</body>
+</html>

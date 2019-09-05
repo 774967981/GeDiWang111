@@ -1,0 +1,104 @@
+@import 'header.scss';
+@import 'footer.scss';
+.register{
+    width: 100%;
+    height: 500px;
+    position: relative;
+        .register-big{
+            width: 1000px;
+            height: 500px;
+            position: relative;
+             margin: 0 auto;
+                .register-top{
+                    width: 1000px;
+                    height: 91px;
+                    padding-top: 18px;
+                        img{
+                            display:block;
+                            margin: 0 auto;
+                            width: 610px;
+                            height: 55px;
+
+                        }
+                }
+            table{
+                width: 100%;
+                margin-top: 40px;
+                
+                .td-left{
+                    width: 190px;
+                    text-align: right;
+                    color: #666666;
+                    font-weight: 100;
+                    &:nth-child(4){
+                        width: 65px;
+                    }
+                   
+                }
+                .td-right{
+                    height: 28px;
+                    line-height: 28px;
+                    padding: 10px 0;
+                        input{
+                            border: 1px solid #ccc;
+                            width: 175px;
+                            height: 26px;
+                            line-height: 26px;
+                            color: #666;
+                            padding-left: 5px;
+                        }
+                                .pwd-bottom{
+                                    background-color: #CFC6BD;
+                                    height: 14px;
+                                    width: 183px;
+                                    margin-top: 3px;
+                                    overflow: hidden;
+                                    position: absolute;
+                                   
+                                        span{
+                                            border-right: 1px solid #FFFFFF;
+                                            color: #FFFFFF;
+                                            display:block;
+                                            float: left;
+                                            height: 14px;
+                                            line-height: 14px;
+                                            text-align: center;
+                                            width: 60px;
+                                        }
+                                }
+                        .td-yzm{
+                            width: 65px;
+                        }
+                        
+                        .td-dx{
+                            width: 65px;
+                        }
+                        .dx{
+                            width: 68px;
+                            font-size: 12px;
+                        }
+                }
+            }
+            .submits{
+                padding: 40px 0 40px 164px;
+                    button{
+                        background-color: #950B00;
+                        border-color: #950B00;
+                        font-size: 14px;
+                        font-weight: bold;
+                        height: 30px;
+                        line-height: 27px;
+                        border-radius: 2px 2px 2px 2px;
+                        cursor: pointer;
+                        display: inline-block;
+                        padding: 0 10px;
+                        color: #FFFFFF;
+                    }
+               input{
+                    margin-left: 5px;
+               }
+            }
+        }
+
+        
+}

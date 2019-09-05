@@ -5,6 +5,7 @@
     <title>注册</title>
     <link rel="stylesheet" href="css/register.css">
     <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/cookie.js"></script>
     <script src="js/register.js"></script>
 </head>
 <body>
@@ -21,14 +22,14 @@
                     <tr>
                         <th class="td-left">手机号码：</th>
                         <td class="td-right">
-                            <input type="text" class="td-sjhm" name="sjhm">
+                            <input type="text" class="td-sjhm" name="sjhm" id="aa">
                             <span class="sp-sjhm"></span>
                         </td>
                     </tr>
                     <tr>
                         <th class="td-left">登录密码：</th>
                         <td class="td-right">
-                            <input type="password" class="td-dlmm" name="dlmm">
+                            <input type="password" class="td-dlmm" name="dlmm" id="aa">
                             <span class="sp-dlmm"></span>
                             <div class="pwd-bottom">
                                 <span>弱</span>
@@ -40,20 +41,20 @@
                     <tr>
                         <th class="td-left">确认密码：</th>
                         <td class="td-right">
-                            <input type="password" class="td-qrmm" name="qrmm">
+                            <input type="password" class="td-qrmm" name="qrmm" id="aa">
                             <span class="sp-qrmm"></span>
                         </td>
                     </tr>
                     <tr>
                         <th class="td-left">验证码：</th>
                         <td class="td-right">
-                            <input type="text" class="td-yzm" name="yzm" value="不用填">
+                            <input type="text" class="td-yzm" name="yzm" value="不用填"">
                         </td>
                     </tr>
                     <tr>
                         <th class="td-left" >短信验证码：</th>
                         <td class="td-right">
-                            <input type="text" class="td-dx" name="dx">
+                            <input type="text" class="td-dx" name="dx" id="aa">
                             <input type="button" class="dx" value="获取验证码">
                             <span class="sp-dx"></span>
                         </td>
@@ -62,8 +63,8 @@
                 
             </table>
             <div class="submits">
-                <button type="submit">同意协议并注册</button>
-                <a href="#">《哥弟服务协议》</a>
+                <input type="text" class="submit-ty" value="同意协议并注册">
+                <a href="#" class="submit-css">《哥弟服务协议》</a>
             </div>
         </form>
      </div> 
@@ -73,7 +74,10 @@
     
    <script>
         $('header').load('header.html header',function(){
-            $('.navigation .navigation-top-t .navigation-top a').hover(function(){
+        $('.navigation-bottom .navigation-bottom-ul > li').eq(1).click(function(){
+            location.href = 'detail_page.html';
+        })
+        $('.navigation .navigation-top-t .navigation-top a').hover(function(){
 		$(this).css('color','#cd842d')
 	},function(){
 		$(this).css('color','black')

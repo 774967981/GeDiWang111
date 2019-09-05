@@ -24,7 +24,9 @@
             table{
                 width: 100%;
                 margin-top: 40px;
-                
+                //  #aa{
+                //     border-color:blue;
+                // }
                 .td-left{
                     width: 190px;
                     text-align: right;
@@ -72,16 +74,18 @@
                         
                         .td-dx{
                             width: 65px;
+                            
                         }
                         .dx{
                             width: 68px;
                             font-size: 12px;
                         }
+                        
                 }
             }
             .submits{
                 padding: 40px 0 40px 164px;
-                    button{
+                    .submit-ty{
                         background-color: #950B00;
                         border-color: #950B00;
                         font-size: 14px;
@@ -93,10 +97,9 @@
                         display: inline-block;
                         padding: 0 10px;
                         color: #FFFFFF;
+                        text-align: center;
                     }
-               input{
-                    margin-left: 5px;
-               }
+                   
             }
         }
 

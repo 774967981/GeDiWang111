@@ -1,38 +1,57 @@
 $(function(){
-	// const $slide = $('.slide-show');
-	// // 左右按钮
-	 var lefts = $('.slide-show-left');
-	 var rights = $('.slide-show-right');
-	// // 下标
-	 var index = 0;
-	// // 所有的li
-	// const $lis = $('.slide-show-buttom li');
-	// // 所有的图片
-	// const $uls = $('.slide-show-top a');
-	// const $num = $uls.length;
-	// // 获取大图ul
-	// const $ul = $('slide-show-top');
-	// // 左按钮事件
-	lefts.click(function(){
-		index--;
-		if(index == -1){
-			index = $().length -1;
-		}
-		$('.slide-show > .slide-show-top > li').eq(index).animate({left : -1920},100);
-	})
-	rights.click(function(){
-		index++;
-		if(index == $('.slide-show > .slide-show-top > li').length){
-			index = 0;
-		}
-		$('.slide-show > .slide-show-top > li').eq(index).animate({left : 1920},100);
-	})
+		var slideBox = $(".slideBox");
+		var ul = slideBox.find("ul");
+		var oneWidth = slideBox.find("ul li").eq(0).width();
+		var number = slideBox.find(".spanBox span");
+		var timer = null;
+		var sw = 0;                    
+		//每个span绑定click事件，
+		number.on("click",function (){
+		$(this).addClass("active").siblings("span").removeClass("active");
+		sw=$(this).index();
+		ul.animate({
+			   "right":oneWidth*sw, 
+				  });
+		});
+		//左右按钮
+		$(".next").stop(true,true).click(function (){
+			sw++;
+			if(sw==number.length){sw=0};
+			number.eq(sw).trigger("click");
+			});
+	   $(".prev").stop(true,true).click(function (){
+		   sw--;
+		   if(sw==number.length){sw=0};
+		   number.eq(sw).trigger("click");
+		   });
+	   //定时器
+	   timer = setInterval(function (){
+		   sw++;
+		   if(sw==number.length){sw=0};
+		   number.eq(sw).trigger("click");
+		   },500);
+	   //hover事件完成悬停和左右图标的动画效果
+	   slideBox.hover(function(){
+		   $(".next,.prev").animate({
+			   "opacity":1,
+			   },200);
+		   clearInterval(timer);
+		   },function(){
+			   $(".next,.prev").animate({
+				   "opacity":0.5,
+				   },500);
+		   timer = setInterval(function (){
+				sw++;
+				if(sw==number.length){sw=0};
+				number.eq(sw).trigger("click");
+		   },3000);
+			   })
 
 
 
 
-
-    $.getJSON("home_page.json",function(data){
+	//    ajax获取信息
+			$.getJSON("home_page.json",function(data){
 				// console.log(data);
             $.each(data,function(index,value){
 			//    console.log(data[index].type);

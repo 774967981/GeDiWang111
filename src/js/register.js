@@ -1,5 +1,5 @@
 $(function(){
-    // 手机号码
+//     // 手机号码
     $('.td-sjhm').focus(function(){
         $('.sp-sjhm').text('请输入您的手机号码，方便日后找回');
     })
@@ -10,7 +10,7 @@ $(function(){
         let re = /^(13|14|15|17|18|19)[0-9]{9}$/;
         if(re.test(str) === true){
             $('.sp-sjhm').text('手机号码可用！');
-            inp.css('border-color','#ccc');
+            inp.css('border-color','pink');
         }else if(str === ''){
             $('.sp-sjhm').text('请输入您的手机号码，方便日后找回');
             inp.css('border-color','red');
@@ -30,7 +30,7 @@ $(function(){
         let re = /^[a-zA-Z\d]{6,16}$/;
         if(re.test(str) === true){
             $('.sp-dlmm').text('密码可用');
-            inp.css('border-color','#ccc');
+            inp.css('border-color','pink');
         }else if(str === ''){
             $('.sp-dlmm').text('不能为空');
             inp.css('border-color','red');
@@ -39,7 +39,7 @@ $(function(){
             inp.css('border-color','red');
         }
     })
-    // 确认密码
+//     // 确认密码
     $('.td-qrmm').focus(function(){
         $('.sp-qrmm').text('请再输一次密码');
     })
@@ -54,44 +54,81 @@ $(function(){
             inp.css('border-color','red');
         }else if( qrmm_val === dlmm_val){
             $('.sp-qrmm').text('密码正确');
-            inp.css('border-color','#ccc');
+            inp.css('border-color','pink');
         }else{
             $('.sp-qrmm').text('密码不正确');
             inp.css('border-color','red');
         }
     })
-    // 验证码
-    $('.td-yzm').css('color','#ccc');
-    $('.td-dx').css('color','#ccc');
-    //短信验证码
-     var num1 = '';
+//     // 验证码
+//     // $('.td-yzm').css('border-color','#ccc');
+//     // $('.dx').css('border-color','#ccc');
+//     //短信验证码
+    
     $('.dx').click(function(){
-
-         num1 = Math.floor(Math.random() * (999999 - 99999 + 1) + 99999);
-        // console.log(num1)
+        var num1 = '';
+        num1 = Math.floor(Math.random() * (999999 - 99999 + 1) + 99999);
         $(this).val(num1);
         $('.dx').attr('aaa',num1); 
         $('.td-dx').blur(function(){
+            // console.log($('.dx').attr('aaa'));
             if($(this).val() == $('.dx').attr('aaa')){
                 alert('正确')
-                $(this).css('color','#ccc');
+                $(this).css('border-color','pink');
+            }else if($(this).val() == ''){
+                $('.sp-dx').text('验证码不正确');
+                $(this).css('border-color','red');
             }else{
                 $('.sp-dx').text('验证码不正确');
-                $(this).css('color','red');
+                $(this).css('border-color','red');
             }
         })
     })
-    
-    // console.log($('.dx').attr('aaa'));
-    // console.log(num1);
     $('.td-dx').focus(function(){
         $('.sp-dx').text('禁止频繁获取短信验证码，每天最多三次');
+        $(this).css('border-color','red');
     })
-    // $('.td-dx').blur(function(){
-    //     let str = $('.td-dx').val();
-    //     console.log(str);
-    //    if(str === num1){ 
-    //         $('.sp-dx').text('验证成功');
-    //    } 
-    // })
-})
+    
+        
+
+    // 同意协议并注册
+    $('.submit-ty').click(function(){
+    // 获取原有cookie
+    // registors={"账号" : '密码',"账号" : '密码'}
+    let uname = $('.td-sjhm').val();
+    let upwd = $('.td-dlmm').val();
+    if(!uname){
+        alert('手机号不能为空');
+        return;
+    }
+    if(!upwd){
+        alert('密码不能为空');
+        return;
+    }
+    let cookieStr = $cookie.get('registors') ? $cookie.get('registors') : '';
+    let cookieObj = strToObj(cookieStr);
+    if(uname in cookieObj){
+        alert('手机号已注册');
+        return;
+    }else{
+        cookieObj[uname] = upwd;
+    }
+    var colors = $('#aa').css('border-color');
+    if(colors == 'rgb(255, 192, 203)'){
+        alert('注册成功')
+    }else{
+        alert('请填写真确信息')
+    }
+    //重新创建cookie
+    $cookie.create('registors',JSON.stringify(cookieObj),7);
+    
+    
+    function strToObj(str){
+                if(!str){
+                    return {};
+                }
+                return JSON.parse(str);
+            }
+        
+    })
+})  

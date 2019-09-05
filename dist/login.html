@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>登录</title>
     <link rel="stylesheet" href="css/login.css">
-    
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/login.js"></script>
 </head>
 <body>
     <header></header> 
@@ -12,36 +15,52 @@
         <div class="big-box">
             <img src="img/login_img1.jpg" alt="aaaa">
             <div class="big-box-right">
-                <div class="huiyuan">哥弟会员</div>
-                <p>你输入的密码和账户名不匹配，请重新输入。或者你忘记了密码？</p>
+                <div class="huiyuan">哥弟会员</divq>
+                <p></p>
                 <form action="" method="get">
                     <table>
                         <tr>
                             <td class="td-left">账户名</td>
-                            <td class="td-right"><input type="text" placeholder="会员名/邮箱地址/手机号"></td>
+                            <td class="td-right"><input class="uname" type="text" placeholder="会员名/邮箱地址/手机号"></td>
                         </tr>
                         <tr>
                             <td class="td-left">密码</td>
-                            <td class="td-right"><input type="password"></td>
+                            <td class="td-right"><input type="password" class="upwd"></td>
                         </tr>
-                       <!-- 三十天内免登录 -->
-                        <!-- <div class="asd">
-                            <span class="asd-asd">
-                                <input type="checkbox">
-                                <span>三十天内免登录</span>
-                            </span>
-                        </div> -->
+                       <!-- 三十天内免登录  -->
+                        
                     </table>
+                    <div class="asd">
+                        <span class="asd-asd">
+                            <input type="checkbox">
+                            <span>三十天内免登录</span>
+                        </span>
+                    </div>
+                    <div class="login-dl">
+                        <button class="login-dl-btn">
+                            <a href="#">登录</a>
+                        </button>
+                       <a href="#">忘记密码？</a>
+                    </div>
+                    
+                    
+                    <div class="login-dx">
+                        <a href="#">短信验证登录</a>
+                        <a href="#">免费注册</a>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
     <footer></footer>
 
-    <script src="js/jquery-1.12.4.js"></script>
+   
     <script>
-            $('header').load('header.html header',function(){
-                $('.navigation .navigation-top-t .navigation-top a').hover(function(){
+         $('header').load('header.html header',function(){
+            $('.navigation-bottom .navigation-bottom-ul > li').eq(1).click(function(){
+                location.href = 'detail_page.html';
+            })
+            $('.navigation .navigation-top-t .navigation-top a').hover(function(){
             $(this).css('color','#cd842d')
         },function(){
             $(this).css('color','black')
